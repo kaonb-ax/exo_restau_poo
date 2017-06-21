@@ -10,7 +10,7 @@ require_once('./includes/header.php');
   </div>
   <div class="mainContainer">
   <?php
-  require_once('./includes/formulaireMenu.php');
+  require_once('./includes/modifPlat.php');
   ?>
   </div>
 </div>

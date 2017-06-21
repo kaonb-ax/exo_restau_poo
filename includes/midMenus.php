@@ -1,16 +1,19 @@
 <div class="mainPlat">
 <?php
 include("bdd.php");
-
 $reponse = $bdd->query('SELECT * FROM menu');
-
-
-// On affiche chaque entrée une à une
-
+// On affiche chaque entrée ligne par ligne
 while ($donnees = $reponse->fetch())
 {
-  echo "<div class='menu'><p>".$donnees["nom"]." ";
-  echo $donnees["prix"]."€</p><p> id_plat =".$donnees["id_plat"]."</p></div>";
+  $find_id = $donnees["id_plat"];
+  include("bdd.php");
+  $reponse_plat = $bdd->query('SELECT nom, image FROM plat WHERE id = "'.$find_id.'"');
+  $donnees_plat = $reponse_plat->fetch();
+
+  echo "<div class='menu'><p>Menu ".$donnees["nom"]."</p>";
+  echo "<p> avec: ".$donnees_plat["nom"]."</p>";
+  echo"<img class='img_plat' src='".$donnees_plat["image"]."' alt='photo de ".$donnees_plat["nom"]."'>";
+  echo $donnees["prix"]."€</div>";
 };
 ?>
 </div>

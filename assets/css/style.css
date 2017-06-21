@@ -115,7 +115,7 @@ input[type="text"].focus{
  flex-direction: column;
 }
 .title{
-  font-size: 2em;
+  font-size: 1.7em;
   color: #575A5B;
   margin: 0.4em  0em 0em 0em;
 }
@@ -125,10 +125,8 @@ input[type="text"].focus{
   color: white;
   font-weight: bold;
   font-size: 1em;
-  margin-left: 6em;
-  margin-right: 6em;
-  margin-top: 1em;
-  padding: 0.8em 0em;
+  margin: 1em 3em 0.5em 3em;
+  padding: 0.8em 2em;
   border-radius: 30px;
   opacity: 0.8;
   filter: alpha(opacity=80);
@@ -149,6 +147,7 @@ form{
 }
 label{
   margin-top: 1em;
+  margin-bottom: 0.2em;
 }
 .mainPlat{
 display:flex;
@@ -176,4 +175,8 @@ justify-content: space-around;
   color: white;
   border-radius: 12px;
   padding:1em;
+}
+.choice{
+  display:flex;
+  justify-content: center;
 }
