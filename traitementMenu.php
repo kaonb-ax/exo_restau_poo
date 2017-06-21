@@ -12,6 +12,6 @@ $req->execute(array(
     'prix' => $prixMenu,
     'id_plat' => $id_plat
     ));
-    header('Location:connection.php');
+    header('Location:menus.php');
     exit();
 ?>

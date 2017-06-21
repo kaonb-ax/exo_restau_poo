@@ -3,13 +3,13 @@ html, body, h1, h2, h3, h4{
   margin: 0;
   padding: 0;
 }
-
 header{
   height: 5em;
   width: 100%;
   /*background-color: #b7b7b7;*/
-  background-image: url('../img/mac.png');
-  background-repeat: repeat;
+  background-image: url('../img/burger1.jpg');
+  background-position: 0 -410px;
+  background-size: cover;
   border-bottom-right-radius: 12px;
   border-bottom-left-radius: 12px;
   box-shadow: 1px 1px 6px black;
@@ -32,15 +32,60 @@ header > h1{
   border-radius: 12px;
   font-size: 18px;
 }
-header span a{
+header div span a{
   margin-top:2em;
   color:white;
   text-decoration: none;
   margin: 20px;
 }
-header span a:hover{
+header div span a:hover{
+  text-decoration: none;
+  color: #bdbdbd;
+}
+.onglets{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  border-radius: 12px;
+  font-size: 18px;
+  display:flex;
+  flex-direction: column;
+}
+div div p{
+  margin:0.45em;
+}
+div div p a{
+  color:black;
+  text-decoration: none;
+  padding: 9px;
+  border-radius: 18px;
+  color:white;
+  text-shadow: 2px 2px 5px black;
+}
+div div p a:hover{
   text-decoration: none;
   color: grey;
+}
+.yellow{
+  background-color: rgba(255, 238, 88, 0.9);
+}
+.green{
+  background-color: rgba(0,255, 0, 0.8);
+}
+.brown{
+  background-color: rgb(100, 30, 22);
+}
+.topBurger{
+  border-top-left-radius: 70px;
+  border-top-right-radius: 70px;
+  padding-top: 13px;
+  padding-left: 13px;
+  padding-right: 13px;
+}
+.botBurger{
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  padding-top: 10px;
 }
 footer{
   text-align: center;
@@ -91,7 +136,11 @@ input[type="text"].focus{
 .alignForm{
   display:flex;
   justify-content: center;
-  margin-top:5em;
+  margin-top:1em;
+  margin-left:25%;
+  margin-right:25%;
+  border-radius: 12px;
+  background-color:rgba(0, 0, 0, 0.1);
 }
 form{
   display:flex;
@@ -99,14 +148,32 @@ form{
   justify-content: space-between;
 }
 label{
-  margin-top: 2.5em;
+  margin-top: 1em;
 }
 .mainPlat{
 display:flex;
+flex-wrap: wrap;
 justify-content: space-around;
 }
 .plat{
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 238, 88, 0.9);
+  border-radius: 12px;
+  padding:0em 1em 0em 1em;
+  margin:0.5em 3em;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.img_plat{
+  width: 130px;
+  height:auto;
+  -moz-border-radius:10px 10px;
+  -webkit-border-radius:10px 10px;
+  border-radius:10px 10px;
+}
+.menu{
+  background-color: rgba(255,0, 0, 0.7);
+  color: white;
   border-radius: 12px;
   padding:1em;
 }

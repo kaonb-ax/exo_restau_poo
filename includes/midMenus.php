@@ -9,7 +9,7 @@ $reponse = $bdd->query('SELECT * FROM menu');
 
 while ($donnees = $reponse->fetch())
 {
-  echo "<div class='plat'><p>".$donnees["nom"]." ";
+  echo "<div class='menu'><p>".$donnees["nom"]." ";
   echo $donnees["prix"]."€</p><p> id_plat =".$donnees["id_plat"]."</p></div>";
 };
 ?>
