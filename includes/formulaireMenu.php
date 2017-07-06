@@ -4,10 +4,13 @@
       <h1 class="title">Ajouter un nouveau menu !</h1>
       <label for="menu">Menu</label>
       <input type="text" id="menu" name="menu" autofocus placeholder="découverte">
-      <label for="prix">prix en euros</label>
-      <input type="text" id="prix" name="prix" value="" placeholder="35">
+      <label for="prix">prix</label>
+      <div>
+        <input type="text" id="prix" name="prix" placeholder="35" style="width: 4em;">
+        <span class="price">€</span>
+      </div>
       <label for="image">choisissez le plat de votre menu</label>
-      <select name="id" size="3">
+      <select name="id" size="1">
         <?php
         include("bdd.php");
         $reponse = $bdd->query('SELECT * FROM plat');

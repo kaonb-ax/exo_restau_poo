@@ -4,8 +4,11 @@
       <h1 class="title">Ajouter un nouveau plat !</h1>
       <label for="plat">nom de votre nouveau plat</label>
       <input type="text" id="plat" name="plat" autofocus placeholder="Couscous aux lardon">
-      <label for="prix">prix en euros</label>
-      <input type="text" id="prix" name="prix" value="" placeholder="15">
+      <label for="prix">prix</label>
+      <div>
+        <input type="text" id="prix" name="prix" placeholder="15" style="width: 4em;">
+        <span class="price">€</span>
+      </div>
       <label for="image">image</label>
       <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
       <input type="file" name="image"/>

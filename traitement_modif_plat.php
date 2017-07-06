@@ -1,5 +1,4 @@
 <?php
-
 if (isset($_POST['change'])) {
     //cliqué sur « modifier »
     echo"change";
@@ -27,6 +26,6 @@ if (isset($_POST['change'])) {
 } else {
     echo "cesser de toucher ce qui ne vous regarde pas !";
 }
-  //header('Location:plats.php');
+  header('Location:plats.php');
     exit();
 ?>

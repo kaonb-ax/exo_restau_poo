@@ -15,12 +15,15 @@
       </select>
       <label for="menu"> Nouveau nom du plat</label>
       <input type="text" id="menu" name="menu" autofocus placeholder="découverte">
-      <label for="prix">nouveau prix en €uro</label>
-      <input type="text" id="prix" name="prix" value="" placeholder="35">
+      <label for="prix">nouveau prix</label>
+      <div>
+        <input type="text" id="prix" name="prix" placeholder="32" style="width: 4em;">
+        <span class="price">€</span>
+      </div>
 
       <div class="choice">
         <button type="submit" name="change" value="change" class="submit" name="button">modifier</button>
-        <button type="submit" id ="supp" name="supp" value="supp" class="submit" name="button">suprimer</button>
+        <button type="submit" id ="supp" name="supp" value="supp" class="submit red" name="button">suprimer</button>
       </div>
   </form>
 </div>
