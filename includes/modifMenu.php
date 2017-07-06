@@ -1,6 +1,6 @@
 
 <div class="alignForm">
-  <form class="text flex column" action="traitement_modif_menu.php" method="POST">
+  <form class="text flex column" action="unic_traitement.php" method="POST">
       <h1 class="title">modifier ou supprimer un menu !</h1>
       <label for="list"> quel menu voulez vous modifier ou supprimer ?</label>
       <select name="list" size="1">
@@ -13,6 +13,9 @@
         };
         ?>
       </select>
+      <div class="choice">
+        <button type="submit" name="supp_menu" value="supp_menu" class="submit red">suprimer</button>
+      </div>
       <label for="menu"> Nouveau nom menu</label>
       <input type="text" id="menu" name="menu" autofocus placeholder="découverte">
       <label for="prix">nouveau prix</label>
@@ -32,8 +35,7 @@
         ?>
       </select>
       <div class="choice">
-        <button type="submit" name="change" value="change" class="submit" name="button">modifier</button>
-        <button type="submit" id ="supp" name="supp" value="supp" class="submit red" name="button">suprimer</button>
+        <button type="submit" name="change_menu" value="change_menu" class="submit">modifier</button>
       </div>
   </form>
 </div>
