@@ -1,6 +1,6 @@
 
 <div class="alignForm">
-  <form class="text flex column" action="unic_traitement.php" method="POST" enctype="multipart/form-data">
+  <form class="text flex column" action="traitement.php" method="POST" enctype="multipart/form-data">
       <h1 class="title">Ajouter un nouveau plat !</h1>
       <label for="plat">nom de votre nouveau plat</label>
       <input type="text" id="plat" name="plat" autofocus placeholder="Couscous aux lardon">

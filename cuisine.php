@@ -1,6 +1,14 @@
 <?php
 require_once('./includes/header.php');
 ?>
+<!-- gestion des onglets -->
+<script type="text/javascript">
+  $('.ong_cuisine').addClass("onglet_G_on");
+  $('.ong_accueil').removeClass("onglet_G_on");
+  $('.ong_plat').removeClass("onglet_G_on");
+  $('.ong_menu').removeClass("onglet_G_on");
+</script>
+<!-- fin de gestion des onglets -->
 <div class="cuisine">
   <div class="onglets">
     <p><a href="#" id="onglet_modif_plat" class="yellow topBurger">modifier un plat</a></p>

@@ -11,9 +11,9 @@
     <header>
       <h1>Eat or Die</h1>
       <div class="liens">
-        <span><a href="index.php">Accueil</a></span>
-        <span><a href="plats.php">Plats</a></span>
-        <span><a href="menus.php">Menus</a></span>
-        <span><a href="cuisine.php">cuisine</a></span>
+        <span><a href="index.php" class="ong_accueil onglet_G_on" >Accueil</a></span>
+        <span><a href="plats.php" class="ong_plat">Plats</a></span>
+        <span><a href="menus.php" class="ong_menu">Menus</a></span>
+        <span><a href="cuisine.php" class="ong_cuisine">cuisine</a></span>
       </div>
     </header>

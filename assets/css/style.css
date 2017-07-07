@@ -23,8 +23,14 @@ header > h1{
   padding-top:0.15em;
   text-shadow: 6px  6px 8px black;
 }
+.onglet_G_on{
+  color: black;
+  background-color: white;
+  border-radius: 3px;
+  }
 .liens{
   margin-top: 0.75em;
+  padding-bottom: 1px;
   text-align: center;
   background-color: black;
   display: flex;

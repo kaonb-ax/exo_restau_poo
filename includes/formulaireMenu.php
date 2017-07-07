@@ -1,6 +1,6 @@
 
 <div class="alignForm">
-  <form class="text flex column" action="unic_traitement.php" method="POST">
+  <form class="text flex column" action="traitement.php" method="POST">
       <h1 class="title">Ajouter un nouveau menu !</h1>
       <label for="menu">Menu</label>
       <input type="text" id="menu" name="menu" autofocus placeholder="découverte">

@@ -1,7 +1,4 @@
 <?php
-// SELECT * FROM `relation_agence_voyage`
-// LEFT JOIN voyage ON `voyage`.id = `relation_agence_voyage`.id_voyage
-// LEFT JOIN agence ON `agence`.id = `relation_agence_voyage`.id_agence
 //==========appel de la BDD============
 require_once("bdd.php");
 // =================traitement modif plat===============
@@ -25,11 +22,16 @@ if (isset($_POST['change_plat'])) {
     header('Location:plats.php');
 }elseif (isset($_POST['supp_plat'])){
   //cliqué sur « supprimer »
-      $id_ancien_menu = $_POST["list"];
+      $id_ancien_plat = $_POST["list"];
       //delete de l'entrée en BDD===
       $req = $bdd->prepare('DELETE FROM plat WHERE id = :id');
       $req->execute(array(
-          'id' => $id_ancien_menu
+          'id' => $id_ancien_plat
+          ));
+      //delete de l'entrée en BDD===
+      $req2 = $bdd->prepare('DELETE FROM relation WHERE id_plat = :id_plat');
+      $req2->execute(array(
+          'id_plat' => $id_ancien_plat
           ));
       header('Location:plats.php');
 // =================traitement modif menu===============
@@ -58,6 +60,7 @@ if (isset($_POST['change_plat'])) {
     $id_ancien_menu = $_POST["list"];
     // delete de l'entrée en BDD===
     $req = $bdd->exec("DELETE FROM menu WHERE id = '$id_ancien_menu'");
+    $req2 = $bdd->exec("DELETE FROM relation WHERE id_menu = '$id_ancien_menu'");
     header('Location:menus.php');
 // =================traitement plat=====================
 }elseif (isset($_POST['form_plat'])){
@@ -85,18 +88,25 @@ if (isset($_POST['change_plat'])) {
   $nomMenu = $_POST["menu"];
   $prixMenu = $_POST["prix"];
   $id_plat = $_POST["id"];
-  echo "========".$nomMenu." ".$prixMenu."========";
-  $req = $bdd->prepare('INSERT INTO menu(id_plat, nom, prix) VALUES(:id_plat, :nom, :prix)');
-
+  $req = $bdd->prepare('INSERT INTO menu(nom, prix) VALUES(:nom, :prix)');
   $req->execute(array(
       'nom' => $nomMenu,
-      'prix' => $prixMenu,
+      'prix' => $prixMenu
+    ));
+
+  $id_new_menu = $bdd->lastInsertId();
+  $id_new_menu = intval($id_new_menu);
+  $id_plat = intval($id_plat);
+
+  $req2 = $bdd->prepare('INSERT INTO relation(id_menu, id_plat) VALUES(:id_menu, :id_plat)');
+  $req2->execute(array(
+      'id_menu' => $id_new_menu,
       'id_plat' => $id_plat
       ));
   header('Location:menus.php');
   exit();
 }else{
-    echo "cesser de toucher ce qui ne vous regarde pas !";
+    echo "vous ne devriez pas être là! alors cesser de toucher ce qui ne vous regarde pas !";
 }
 exit();
 ?>

@@ -1,6 +1,6 @@
 $( document ).ready(function(){
 console.log( "app.js ready!" );
-
+// gestion des onglet de la cuisine=====================
 $('#onglet_plat').click(function() {
   window.location.href = "newPlat.php";
 });
@@ -13,8 +13,7 @@ $('#onglet_modif_menu').click(function() {
 $('#onglet_modif_plat').click(function() {
   window.location.href = "modif_plat.php";
 });
-$('#supp').click(function() {
-var r = confirm("êtes vous sur de vouloir supprimer ? 'ne marche pas encore'")
-});
+// fin de la gestion des onglet de la cuisine============
+
 // fin du doc ready
 });
