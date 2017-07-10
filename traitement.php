@@ -23,15 +23,15 @@ if (isset($_POST['change_plat'])) {
 }elseif (isset($_POST['supp_plat'])){
   //cliqué sur « supprimer »
       $id_ancien_plat = $_POST["list"];
-      //delete de l'entrée en BDD===
-      $req = $bdd->prepare('DELETE FROM plat WHERE id = :id');
-      $req->execute(array(
-          'id' => $id_ancien_plat
-          ));
-      //delete de l'entrée en BDD===
+      //delete de l'entrée dans relation===
       $req2 = $bdd->prepare('DELETE FROM relation WHERE id_plat = :id_plat');
       $req2->execute(array(
           'id_plat' => $id_ancien_plat
+          ));
+      //delete de l'entrée dans plat===
+      $req = $bdd->prepare('DELETE FROM plat WHERE id = :id');
+      $req->execute(array(
+          'id' => $id_ancien_plat
           ));
       header('Location:plats.php');
 // =================traitement modif menu===============
@@ -51,25 +51,26 @@ if (isset($_POST['change_plat'])) {
         'prix' => $new_prix,
         'id' => $id_ancien_menu
         ));
-    // foreach($_POST['check'] as $id_plat){
-    //   $req = $bdd->prepare('UPDATE menu SET
-    //       nom = :nom,
-    //       prix = :prix
-    //       WHERE id = :id'
-    //       );
-    //   $req->execute(array(
-    //       'nom' => $new_menu,
-    //       'prix' => $new_prix,
-    //       'id' => $id_ancien_menu
-    //       ));
-    //}
+    //on supprime toute les entrer de l'ancien menu======
+    $req2 = $bdd->exec("DELETE FROM relation WHERE id_menu = '$id_ancien_menu'");
+    //on recréé toute les entrées du nouveau menu========
+    foreach($_POST['check'] as $id_plat){
+      //convertion de l'ID en INT
+      $id_plat = intval($id_plat);
+      //ajout en base pour chaque ID de plat
+      $req2 = $bdd->prepare('INSERT INTO relation(id_menu, id_plat) VALUES(:id_menu, :id_plat)');
+      $req2->execute(array(
+          'id_menu' => $new_menu,
+          'id_plat' => $id_plat
+        ));
+      }
     header('Location:menus.php');
 }elseif (isset($_POST['supp_menu'])){
   //cliqué sur « supprimer »
     $id_ancien_menu = $_POST["list"];
     // delete de l'entrée en BDD===
-    $req = $bdd->exec("DELETE FROM menu WHERE id = '$id_ancien_menu'");
     $req2 = $bdd->exec("DELETE FROM relation WHERE id_menu = '$id_ancien_menu'");
+    $req = $bdd->exec("DELETE FROM menu WHERE id = '$id_ancien_menu'");
     header('Location:menus.php');
 // =================traitement plat=====================
 }elseif (isset($_POST['form_plat'])){

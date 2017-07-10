@@ -7,7 +7,7 @@
   {
     echo "
     <div class='plat'>
-      <p>".$donnees["nom"]."</p>
+      <p class='source resize'>".$donnees["nom"]."</p>
       <p><img src='".$donnees["image"]."' class='img_plat' alt='photo de ".$donnees["nom"]."'></p>
       <p class='prix'>".$donnees["prix"]."€</p>
     </div>";

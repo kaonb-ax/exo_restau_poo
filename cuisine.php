@@ -11,11 +11,10 @@ require_once('./includes/header.php');
 <!-- fin de gestion des onglets -->
 <div class="cuisine">
   <div class="onglets">
-    <p><a href="#" id="onglet_modif_plat" class="yellow topBurger">modifier un plat</a></p>
-    <p><a href="#" id="onglet_plat" class="green">Ajouter un plat</a></p>
-    <div class="tomato"></div>
-    <p><a href="#" id="onglet_menu" class="brown">Ajouter un menu</a></span>
-    <p><a href="#" id="onglet_modif_menu" class="yellow botBurger">modifier un menu</a></p>
+    <span><a href="#" id="onglet_modif_plat" class="green">modifier/supprimer un plat</a></span>
+    <span><a href="#" id="onglet_plat" class="green">Ajouter un plat</a></span>
+    <span><a href="#" id="onglet_menu" class="red">Ajouter un menu</a></span>
+    <span><a href="#" id="onglet_modif_menu" class="red">modifier/supprimer un menu</a></span>
   </div>
   <div class="mainContainer">
   <?php

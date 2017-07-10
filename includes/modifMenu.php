@@ -9,7 +9,7 @@
         $reponse = $bdd->query('SELECT * FROM menu');
         while ($donnees = $reponse->fetch())
         {
-          echo "<option value='".$donnees["id"]."'>".$donnees["nom"]."</option>";
+          echo "<option class='selectList' value='".$donnees["id"]."'>".$donnees["nom"]."</option>";
         };
         ?>
       </select>
@@ -19,22 +19,27 @@
       </div>
       <label for="menu"> Nouveau nom menu</label>
       <input type="text" id="menu" name="menu" autofocus placeholder="découverte">
-      <label for="prix">nouveau prix</label>
-      <div>
-        <input type="text" id="prix" name="prix" style="width: 4em;" placeholder="32">
-        <span class="price">€</span>
-      </div>
-      <label for="id">nouveau plat</label>
-      <select name="id" size="1">
+      <label for="checkbox">Choisissez les plats inclus dans votre menu</label>
+        <div class="checkbox">
         <?php
         include("bdd.php");
         $reponse = $bdd->query('SELECT * FROM plat');
         while ($donnees = $reponse->fetch())
         {
-          echo "<option value='".$donnees["id"]."'>".$donnees["nom"]."</option>";
+          echo "<div class='checkB'>
+                  <label>
+                    <input type='checkbox' name='check[]' value='".$donnees["id"]."'>
+                    ".$donnees["nom"]."
+                  </label>
+                </div>";
         };
         ?>
-      </select>
+        </div>
+      <label for="prix">nouveau prix</label>
+      <div>
+        <input type="text" id="prix" name="prix" style="width: 4em;" placeholder="32">
+        <span class="price">€</span>
+      </div>
       <div class="choice">
         <button type="submit" name="change_menu" value="change_menu" class="submit">modifier</button>
       </div>
