@@ -39,21 +39,30 @@ if (isset($_POST['change_plat'])) {
   //cliqué sur « modifier »
     $new_menu = $_POST["menu"];
     $new_prix = $_POST["prix"];
-    $new_plat = $_POST["id"];
     $id_ancien_menu = $_POST["list"];
     // update de la BDD=====
     $req = $bdd->prepare('UPDATE menu SET
-        id_plat = :id_plat,
         nom = :nom,
         prix = :prix
         WHERE id = :id'
         );
     $req->execute(array(
-        'id_plat' => $new_plat,
         'nom' => $new_menu,
         'prix' => $new_prix,
         'id' => $id_ancien_menu
         ));
+    // foreach($_POST['check'] as $id_plat){
+    //   $req = $bdd->prepare('UPDATE menu SET
+    //       nom = :nom,
+    //       prix = :prix
+    //       WHERE id = :id'
+    //       );
+    //   $req->execute(array(
+    //       'nom' => $new_menu,
+    //       'prix' => $new_prix,
+    //       'id' => $id_ancien_menu
+    //       ));
+    //}
     header('Location:menus.php');
 }elseif (isset($_POST['supp_menu'])){
   //cliqué sur « supprimer »
@@ -87,22 +96,25 @@ if (isset($_POST['change_plat'])) {
 }elseif (isset($_POST['form_menu'])){
   $nomMenu = $_POST["menu"];
   $prixMenu = $_POST["prix"];
-  $id_plat = $_POST["id"];
   $req = $bdd->prepare('INSERT INTO menu(nom, prix) VALUES(:nom, :prix)');
   $req->execute(array(
       'nom' => $nomMenu,
       'prix' => $prixMenu
     ));
-
+  //recuperation de l'ID du nouveau menu et conversion en INT
   $id_new_menu = $bdd->lastInsertId();
   $id_new_menu = intval($id_new_menu);
-  $id_plat = intval($id_plat);
-
-  $req2 = $bdd->prepare('INSERT INTO relation(id_menu, id_plat) VALUES(:id_menu, :id_plat)');
-  $req2->execute(array(
-      'id_menu' => $id_new_menu,
-      'id_plat' => $id_plat
+  //traitement des checkboxes et entrée dans la table relation
+  foreach($_POST['check'] as $id_plat){
+    //convertion de l'ID en INT
+    $id_plat = intval($id_plat);
+    //ajout en base pour chaque ID de plat
+    $req2 = $bdd->prepare('INSERT INTO relation(id_menu, id_plat) VALUES(:id_menu, :id_plat)');
+    $req2->execute(array(
+        'id_menu' => $id_new_menu,
+        'id_plat' => $id_plat
       ));
+    }
   header('Location:menus.php');
   exit();
 }else{

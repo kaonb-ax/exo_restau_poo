@@ -15,5 +15,10 @@ $('#onglet_modif_plat').click(function() {
 });
 // fin de la gestion des onglet de la cuisine============
 
+//bouton valider sur les formulaire de suppression=======
+$('.false').click(function() {
+  $('.true').removeClass("hiddenTrueSupp");
+  $('.false').addClass("hiddenTrueSupp");
+});
 // fin du doc ready
 });

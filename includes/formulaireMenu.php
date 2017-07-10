@@ -4,22 +4,27 @@
       <h1 class="title">Ajouter un nouveau menu !</h1>
       <label for="menu">Menu</label>
       <input type="text" id="menu" name="menu" autofocus placeholder="découverte">
-      <label for="prix">prix</label>
-      <div>
-        <input type="text" id="prix" name="prix" placeholder="35" style="width: 4em;">
-        <span class="price">€</span>
-      </div>
-      <label for="image">choisissez le plat de votre menu</label>
-      <select name="id" size="1">
+      <label for="checkbox">Choisissez les plats inclus dans votre menu</label>
+        <div class="checkbox">
         <?php
         include("bdd.php");
         $reponse = $bdd->query('SELECT * FROM plat');
         while ($donnees = $reponse->fetch())
         {
-          echo "<option value='".$donnees["id"]."'>".$donnees["nom"]."</option>";
+          echo "<div class='checkB'>
+                  <label>
+                    <input type='checkbox' name='check[]' value='".$donnees["id"]."'>
+                    ".$donnees["nom"]."
+                  </label>
+                </div>";
         };
         ?>
-      </select>
+        </div>
+      <label for="prix">prix</label>
+      <div>
+        <input type="text" id="prix" name="prix" placeholder="35" style="width: 4em;">
+        <span class="price">€</span>
+      </div>
       <button type="submit" name="form_menu" value="form_menu" class="submit" name="button">Ajouter</button>
   </form>
 </div>

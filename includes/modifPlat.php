@@ -14,7 +14,8 @@
         ?>
       </select>
       <div class="choice">
-        <button type="submit" name="supp_plat" value="supp_plat" class="submit red">suprimer</button>
+        <button type="button" class="false submit red">supprimer</button>
+        <button type="submit" name="supp_plat" value="supp_plat" class="true submit red  hiddenTrueSupp">vous confirmer la suppression ?</button>
       </div>
       <label for="modif_plat"> Nouveau nom du plat</label>
       <input type="text" id="modif_plat" name="modif_plat" autofocus placeholder="découverte">

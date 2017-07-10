@@ -127,6 +127,14 @@ input[type="text"].focus{
   color: #575A5B;
   margin: 0.4em  0em 0em 0em;
 }
+.checkbox{
+  padding-left: 1em;
+  background-color: white;
+  border-radius: 4px;
+}
+.checkB{
+  padding: 2px;
+}
 .submit{
   border: none;
   background-color: #1E9BB4;
@@ -138,6 +146,9 @@ input[type="text"].focus{
   border-radius: 30px;
   opacity: 0.8;
   filter: alpha(opacity=80);
+}
+.hiddenTrueSupp{
+  display:none;
 }
 .red{
   background-color: #D9534C;
