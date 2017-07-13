@@ -1,7 +1,9 @@
 <?php
 //==========appel de la BDD============
 require_once("bdd.php");
+
 // =================traitement modif plat===============
+
 if (isset($_POST['change_plat'])) {
   //cliqué sur « modifier plat »
     echo"change";
@@ -20,6 +22,9 @@ if (isset($_POST['change_plat'])) {
         'id' => $id_ancien_plat
         ));
     header('Location:plats.php');
+
+// ==============traitement suppression plat=============
+
 }elseif (isset($_POST['supp_plat'])){
   //cliqué sur « supprimer »
       $id_ancien_plat = $_POST["list"];
@@ -34,12 +39,20 @@ if (isset($_POST['change_plat'])) {
           'id' => $id_ancien_plat
           ));
       header('Location:plats.php');
+
 // =================traitement modif menu===============
+
 }elseif (isset($_POST['change_menu'])){
   //cliqué sur « modifier »
     $new_menu = $_POST["menu"];
     $new_prix = $_POST["prix"];
     $id_ancien_menu = $_POST["list"];
+    echo"<p>new_menu:</p>";
+    var_dump($new_menu);
+    echo"<br/><p>new_prix: </p>";
+    var_dump($new_prix);
+    echo"<br/><p>id_ancien_menu: </p>";
+    var_dump($id_ancien_menu);
     // update de la BDD=====
     $req = $bdd->prepare('UPDATE menu SET
         nom = :nom,
@@ -60,11 +73,14 @@ if (isset($_POST['change_plat'])) {
       //ajout en base pour chaque ID de plat
       $req2 = $bdd->prepare('INSERT INTO relation(id_menu, id_plat) VALUES(:id_menu, :id_plat)');
       $req2->execute(array(
-          'id_menu' => $new_menu,
+          'id_menu' => $id_ancien_menu,
           'id_plat' => $id_plat
         ));
       }
     header('Location:menus.php');
+
+// ==============traitement suppression menu=============
+
 }elseif (isset($_POST['supp_menu'])){
   //cliqué sur « supprimer »
     $id_ancien_menu = $_POST["list"];
@@ -72,7 +88,9 @@ if (isset($_POST['change_plat'])) {
     $req2 = $bdd->exec("DELETE FROM relation WHERE id_menu = '$id_ancien_menu'");
     $req = $bdd->exec("DELETE FROM menu WHERE id = '$id_ancien_menu'");
     header('Location:menus.php');
+
 // =================traitement plat=====================
+
 }elseif (isset($_POST['form_plat'])){
   $nomPlat = $_POST["plat"];
   $prixPlat = $_POST["prix"];
@@ -93,7 +111,9 @@ if (isset($_POST['change_plat'])) {
     ));
   header('Location:plats.php');
   exit();
+
 // =================traitement menu=====================
+
 }elseif (isset($_POST['form_menu'])){
   $nomMenu = $_POST["menu"];
   $prixMenu = $_POST["prix"];
@@ -118,8 +138,21 @@ if (isset($_POST['change_plat'])) {
     }
   header('Location:menus.php');
   exit();
+
+// =================auto_completion_menu=====================
+
+}elseif (isset($_POST['auto_completion_menu'])){
+  $id_selected_menu = $_POST["list"];
+  $req = $bdd->prepare('SELECT nom AS nom FROM menu WHERE id = :id_menu');
+  $req->execute(array(
+      'id_menu' => $id_selected_menu
+      ));
+      while ($donnees = $req->fetch())
+  header('Location:modif_menu.php?nom_menu='.$donnees['nom'].'&id_menu='.$_POST["list"]);
+  exit();
+// cas de vide ou d'erreur==================================
 }else{
-    echo "vous ne devriez pas être là! alors cesser de toucher ce qui ne vous regarde pas !";
+    echo " une erreur est survenue, vous ne devriez pas être là!";
 }
 exit();
 ?>
