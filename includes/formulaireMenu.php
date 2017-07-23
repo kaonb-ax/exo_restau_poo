@@ -1,7 +1,6 @@
 
 <div class="alignForm">
   <form class="text flex column" action="traitement.php" method="POST">
-      <h1 class="title">Ajouter un nouveau menu !</h1>
       <label for="menu">Menu</label>
       <input type="text" id="menu" name="menu" autofocus placeholder="découverte">
       <label for="checkbox">Choisissez les plats inclus dans votre menu</label>
@@ -22,7 +21,7 @@
         </div>
       <label for="prix">prix</label>
       <div>
-        <input type="text" id="prix" name="prix" placeholder="35" style="width: 4em;">
+        <input type="text" class="inputPrix" id="prix" name="prix" placeholder="35">
         <span class="price">€</span>
       </div>
       <button type="submit" name="form_menu" value="form_menu" class="submit" name="button">Ajouter</button>

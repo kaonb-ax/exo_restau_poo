@@ -10,9 +10,13 @@
   font-family: 'source';
   src: url('../font/SourceSansPro-Light.otf');
 }
-html, body, h1, h2, h3, h4{
+html, body, h1, h2, h3, h4, footer{
   margin: 0;
   padding: 0;
+  height: 100%;
+}
+body{
+  min-height: 100%
 }
 header{
   height: 5em;
@@ -52,7 +56,8 @@ header > h1{
   padding: 0px 5px;
 }
 .liens{
-  margin-top: 0.55em;
+  margin-top: 0em;
+  padding-top: 0.1em;
   padding-bottom: 1px;
   text-align: center;
   background-color: black;
@@ -71,17 +76,22 @@ header div span a:hover{
   text-decoration: none;
   color: #bdbdbd;
 }
+.freeSpace{
+  height:30.5em;
+}
 .onglets{
   text-align: center;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: ;
   align-items: center;
-  margin-left: 15%;
-  margin-right: 15%;
-  border-radius: 12px;
+  min-width: 42.5em;
+  margin-bottom: -0.1em;
   font-size: 18px;
+}
+.space{
+  width: 6em;
 }
 div div span{
   margin:0.6em 0em 0.6em 0em;
@@ -89,26 +99,31 @@ div div span{
 div div span a{
   text-decoration: none;
   padding: 9px;
-  border-radius: 18px;
+  border-radius: 12px 12px 0px 0px;
+  border-right: 1px solid rgba(0, 0, 0, 0.4);
   color:white;
   text-shadow: 2px 2px 5px black;
 }
 div div span a:hover{
   text-decoration: none;
-  color: yellow;
+  color: black;
+  background-color: rgba(0,0,0,0.15);
 }
-.green{
-  background-color: rgba(45,191,100,1);
+.grey{
+  background-color: rgba(0,0,0,0.3);
 }
-.red{
-  background-color: rgba(0, 255, 0, 0.4);
+.active{
+  color: black;
+  text-shadow: none;
+  text-decoration: none;
+  background-color: rgba(0,0,0,0.15);
 }
 input[type="text"]{
   padding: 10px;
   border: solid 1px #dcdcdc;
   border-radius: 3px;
   transition: box-shadow 0.3s, border 0.3s;
-  width: 40em;
+  width: 30em;
 }
 input[type="text"]:focus,
 input[type="text"].focus{
@@ -158,20 +173,61 @@ input[type="text"].focus{
   opacity: 0.8;
   filter: alpha(opacity=80);
 }
+.smallSubmit{
+  border: none;
+  background-color: #1E9BB4;
+  color: white;
+  font-weight: bold;
+  font-size: 0.8em;
+  border-radius: 30px;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+  max-height: 2em;
+}
+.smallSubmit:hover{
+  color: black;
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+.microForm{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items:baseline;
+}
 .hidden{
   display:none;
+}
+.hiddenMenu{
+  display:none
 }
 .red{
   background-color: #D9534C;
 }
+.menuPlat{
+  display: flex;
+  justify-content: space-around;
+  margin: 0 20% 0 20%;
+  padding: 1em 0 0.5em 0;
+  text-align: center;
+}
+.cuisine{
+  padding-left: 25%;
+  padding-right:25%;
+}
 .alignForm{
   display:flex;
   justify-content: center;
-  margin-top:0.2em;
-  margin-left:25%;
-  margin-right:25%;
-  border-radius: 12px;
-  background-color:rgba(0, 0, 0, 0.1);
+  min-width: 42.7em;
+  border-radius: 0px 0px 12px 12px;
+  border-right: 1px solid rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  padding-top: 1em;
+  background-color:rgba(0, 0, 0, 0.15);
+}
+.paddingSup{
+  padding-left: 4em;
+  padding-right: 4em;
 }
 form{
   display:flex;
@@ -181,6 +237,10 @@ form{
 label{
   margin-top: 1em;
   margin-bottom: 0.2em;
+}
+/*=======sorry about that important===============*/
+.inputPrix{
+  width: 4em !important;
 }
 .mainPlat{
 display:flex;
@@ -192,12 +252,12 @@ justify-content: space-around;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  background-color: rgba(255, 238, 88, 0.4);
+  background-color: rgba(0,0,0,0.15);
   box-shadow: 3px 3px 3px silver;
   border-radius: 12px;
   padding:0em 1em 0em 1em;
-  margin:0.5em 1em;
-  width: 10em;
+  margin:0.5em 0.5em;
+  width: 12em;
   height:auto;
 }
 .img_plat{
@@ -215,14 +275,21 @@ justify-content: space-around;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  background-color: rgba(255,0, 0, 0.15);
+  background-color: rgba(0,0,0,0.15);
   box-shadow: 3px 3px 3px silver;
   color: black;
   border-radius: 12px;
   margin:0.5em 0.5em 0em 0.5em;
   padding:0em 1em;
-  width: 10em;
+  width: 17em;
   height:auto;
+}
+.smallMargin{
+  margin-left:1em;
+}
+.showHideList{
+  width: 30em;
+  align-self: center;
 }
 .prix{
   background-color: white;
@@ -247,6 +314,8 @@ footer{
   background-color: black;
   color: white;
   width: 100%;
+  max-height: 15em;
+  margin-top: 5em;
   bottom: 0;
 
 }
@@ -260,3 +329,53 @@ footer{
     margin: 0em 12em;
   }
 }
+@media screen and (max-width: 400px) {
+  header{
+    border-radius: 0;
+    background-position: 0 -100px;
+  }
+  header div span a{
+    margin: 11px;
+  }
+  .liens{
+    border-radius: 0px;
+  }
+  .cuisine{
+    padding-left: 1%;
+    padding-right: 1%;
+  }
+  .onglets{
+    flex-direction: column;
+    align-items: center;
+    min-width: 20em;
+  }
+  div div span{
+    margin:0.3em 0em 0.8em 0em;
+    min-width:12em;
+  }
+  div div span a{
+    border-radius: 12px 12px 12px 12px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
+  .alignForm{
+    min-width: 100%;
+    border-radius: 12px 12px 12px 12px;
+  }
+  input[type="text"]{
+    width:80%;
+  }
+  .showHideList{
+    width: 20em;
+  }
+  .submit{
+    margin:0.5em;;
+  }
+  .hiddenMenu{
+    display:block;
+  }
+  .menuShow{
+    display: none
+  }
+  .menuPlat{
+    margin: 0;
+  }

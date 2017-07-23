@@ -26,20 +26,39 @@ if (isset($_POST['change_plat'])) {
 // ==============traitement suppression plat=============
 
 }elseif (isset($_POST['supp_plat'])){
-  //cliqué sur « supprimer »
-      $id_ancien_plat = $_POST["list"];
-      //delete de l'entrée dans relation===
-      $req2 = $bdd->prepare('DELETE FROM relation WHERE id_plat = :id_plat');
-      $req2->execute(array(
-          'id_plat' => $id_ancien_plat
-          ));
-      //delete de l'entrée dans plat===
-      $req = $bdd->prepare('DELETE FROM plat WHERE id = :id');
-      $req->execute(array(
-          'id' => $id_ancien_plat
-          ));
-      header('Location:plats.php');
-
+  //suppression via  cuisine
+  if (isset($_POST["list"])) {
+    $id_ancien_plat = $_POST["list"];
+    //delete de l'entrée dans relation===
+    $req2 = $bdd->prepare('DELETE FROM relation WHERE id_plat = :id_plat');
+    $req2->execute(array(
+        'id_plat' => $id_ancien_plat
+        ));
+    //delete de l'entrée dans plat===
+    $req = $bdd->prepare('DELETE FROM plat WHERE id = :id');
+    $req->execute(array(
+        'id' => $id_ancien_plat
+        ));
+    header('Location:plats.php');
+  //suppression via plat
+  }else if(isset($_POST["check"])){
+      //suppression de chacun des plats coché
+      foreach($_POST['check'] as $id_plat){
+        //convertion de l'ID en INT
+        $id_ancien_plat = intval($id_plat);
+        $req2 = $bdd->prepare('DELETE FROM relation WHERE id_plat = :id_plat');
+        $req2->execute(array(
+            'id_plat' => $id_ancien_plat
+            ));
+        //delete de l'entrée dans plat===
+        $req = $bdd->prepare('DELETE FROM plat WHERE id = :id');
+        $req->execute(array(
+            'id' => $id_ancien_plat
+            ));
+      }
+    }else{
+      echo"erreur";
+    }
 // =================traitement modif menu===============
 
 }elseif (isset($_POST['change_menu'])){

@@ -1,9 +1,8 @@
 
 <div class="alignForm">
   <form class="text flex column" action="traitement.php" method="POST">
-      <h1 class="title">modifier ou supprimer un menu !</h1>
       <p class="selectedMenu hidden" style="text-align:center;"></p>
-      <label for="list" class="showHideList"> Choisissez un menu:</label>
+      <label for="list" class="showHideList" style="text-align:center;"> Choisissez un menu:</label>
       <select name="list" class="showHideList" size="1">
         <?php
         //affichage des different menu================================
@@ -22,14 +21,14 @@
         <button type="button" name="confirm"  class="noSupp back hidden submit">Annulé</button>
       </div>
       <div class="hiddenOption hidden">
-        <label for="menu" style="margin-left:1em;">Menu</label>
+        <label for="menu" class="smallMargin" >Menu</label>
         <div class="champ_new_menu">
-          <input type="text" id="menu" name="menu" autofocus placeholder="découverte" style="margin-left:1em; margin-bottom:1em;">
+          <input type="text" id="menu" name="menu" autofocus placeholder="découverte" class="smallMargin">
         </div>
         <div class="hidden_id"></div>
         <br/>
-        <label for="checkbox" style="margin-left:1em;">Plats inclus dans votre menu</label>
-        <div class="checkbox" style="margin-left:1em; margin-bottom:1em;">
+        <label for="checkbox" class="smallMargin">Plats inclus dans votre menu</label>
+        <div class="checkbox" class="smallMargin">
           <?php
           //affichage des checBoxes=====================================
           //recup du tableau des ID_plat presente dans le menu==========
@@ -64,9 +63,9 @@
           }
           ?>
         </div>
-        <label for="prix" style="margin-left:1em;">Prix</label>
-        <div style="margin-left:1em;">
-          <input type="text" id="prix" name="prix" style="width: 4em;"
+        <label for="prix" class="smallMargin">Prix</label>
+        <div class="smallMargin">
+          <input type="text" class="inputPrix" id="prix" name="prix" class="inputPrix"
           <?php
           //récuperation du prix du menu===============================
           if(isset($_GET['id_menu'])){

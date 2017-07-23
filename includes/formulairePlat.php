@@ -1,12 +1,11 @@
 
 <div class="alignForm">
   <form class="text flex column" action="traitement.php" method="POST" enctype="multipart/form-data">
-      <h1 class="title">Ajouter un nouveau plat !</h1>
       <label for="plat">nom de votre nouveau plat</label>
       <input type="text" id="plat" name="plat" autofocus placeholder="Couscous aux lardon">
       <label for="prix">prix</label>
       <div>
-        <input type="text" id="prix" name="prix" placeholder="15" style="width: 4em;">
+        <input type="text"class="inputPrix" id="prix" name="prix" placeholder="15">
         <span class="price">€</span>
       </div>
       <label for="image">image</label>

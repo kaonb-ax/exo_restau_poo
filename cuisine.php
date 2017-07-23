@@ -9,13 +9,20 @@ require_once('./includes/header.php');
   $('.ong_menu').removeClass("onglet_G_on");
 </script>
 <!-- fin de gestion des onglets -->
+<div class="menuPlat">
+  <span class="anna">----------- Plats -----------</span>
+  <span class="anna menuShow">-----------Menus -----------</span>
+</div>
 <div class="cuisine">
   <div class="onglets">
-    <span><a href="#" id="onglet_modif_plat" class="green">modifier/supprimer un plat</a></span>
-    <span><a href="#" id="onglet_plat" class="green">Ajouter un plat</a></span>
-    <span><a href="#" id="onglet_menu" class="red">Ajouter un menu</a></span>
-    <span><a href="#" id="onglet_modif_menu" class="red">modifier/supprimer un menu</a></span>
+    <span><a href="#" id="onglet_plat" class="grey ">Ajouter</a></span>
+    <span><a href="#" id="onglet_modif_plat" class="grey ">modifier/supprimer</a></span>
+    <div class="space"></div>
+    <span class="anna hiddenMenu">-----------Menus -----------</span>
+    <span><a href="#" id="onglet_menu" class="active ">Ajouter</a></span>
+    <span><a href="#" id="onglet_modif_menu" class="grey ">modifier/supprimer</a></span>
   </div>
+
   <div class="mainContainer">
   <?php
   require_once('./includes/formulaireMenu.php');
