@@ -1,0 +1,19 @@
+Bienvenue sur EAT OR DIE
+
+petit site de restaurant factice a but démonstratif et humouristique.
+
+sur ce site il vous sera posible de gerer la carte d'un restaurant de créé modifier et supprimer des plats et des menus, 
+il vous sera évidement possible des les afficher.
+
+la premiere page, accueil ou il vous sera possible d'afficher un descriptif rapide de votre restaurant de vos plats et menus vedettes,
+ou une news letter, ou toutes information qu'il vous semblera pertinente.
+
+la deuxieme page, plats, vous verrer afficher vos plats, et en tant qu'administrateur vous pourrez aussi les supprimer a la volée.
+
+la troisieme page, menus, vous permet d'afficher et de voir vos menus ainsi que leurs contenues.
+
+la quatrieme et derniere page, cuisine, permet les modifications, ajouts et suppressions de plat et de menu,
+sur la fome d'une fenetre a 4 onglets, 2 concerne les plats et 2 les menus.
+
+
+il vous suffira de renseigner les champs et de suivre les indication pour votre gestion, les formulaire sont tres simple et intuitif
