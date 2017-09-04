@@ -115,13 +115,20 @@ if (isset($_POST['change_plat'])) {
   $prixPlat = $_POST["prix"];
   $imgName = $_FILES['image']['name'];
   $maxsize = $_POST['MAX_FILE_SIZE'];
+  //verification de la taille maximum==
   if ($_FILES['image']['size'] > $maxsize) $erreur = "Le fichier est trop gros";
+  //creation liste des extention valides==
   $extensions_valides = array( 'jpg' , 'jpeg' , 'gif' , 'png' );
+  //mise au normes voulut du nom de l'image==
   $extension_upload = strtolower(  substr(  strrchr($_FILES['image']['name'], '.')  ,1)  );
+  // controle de l'extention par rapport a la liste des ext valides==
   if ( in_array($extension_upload,$extensions_valides) ) echo "Extension correcte";
+  //création du nom définitif de l'image incluant sa position sur le serv
   $nomFichierPlat = "assets/img/{$nomPlat}.{$extension_upload}";
+  //copie de l'imgae sur le serv
   $resultat = move_uploaded_file($_FILES['image']['tmp_name'],$nomFichierPlat);
   if ($resultat) echo "Transfert réussi";
+  //insertion du nom de l'image sur la BDD
   $req = $bdd->prepare('INSERT INTO plat(nom, prix, image) VALUES(:nom, :prix, :image)');
   $req->execute(array(
     'nom' => $nomPlat,
